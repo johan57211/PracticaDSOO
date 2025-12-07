@@ -7,6 +7,69 @@ public class ActualizarUsuario extends javax.swing.JPanel {
 
     public ActualizarUsuario() {
         initComponents();
+
+        // Placeholder ID de Usuario
+        idUsuario.setText("ID de usuario");
+        idUsuario.setForeground(Color.GRAY);
+        idUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (idUsuario.getText().equals("ID de usuario")) {
+                    idUsuario.setText("");
+                    idUsuario.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (idUsuario.getText().isEmpty()) {
+                    idUsuario.setForeground(Color.GRAY);
+                    idUsuario.setText("ID de usuario");
+                }
+            }
+        });
+
+        // Placeholder Nuevo Nombre
+        nuevoNombreField.setText("Nuevo nombre");
+        nuevoNombreField.setForeground(Color.GRAY);
+        nuevoNombreField.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (nuevoNombreField.getText().equals("Nuevo nombre")) {
+                    nuevoNombreField.setText("");
+                    nuevoNombreField.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (nuevoNombreField.getText().isEmpty()) {
+                    nuevoNombreField.setForeground(Color.GRAY);
+                    nuevoNombreField.setText("Nuevo nombre");
+                }
+            }
+        });
+
+        // Placeholder Nuevo Email
+        nuevoEmailField.setText("Nuevo email");
+        nuevoEmailField.setForeground(Color.GRAY);
+        nuevoEmailField.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (nuevoEmailField.getText().equals("Nuevo email")) {
+                    nuevoEmailField.setText("");
+                    nuevoEmailField.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (nuevoEmailField.getText().isEmpty()) {
+                    nuevoEmailField.setForeground(Color.GRAY);
+                    nuevoEmailField.setText("Nuevo email");
+                }
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")

@@ -4,15 +4,63 @@
  */
 package InterfazGrafica;
 
+import java.awt.Color;
+
 
 /**
  *
  * @author thebe
  */
 public class AgregarUsuario extends javax.swing.JPanel {
- 
+
     public AgregarUsuario() {
         initComponents();
+
+        // Placeholder para usuarioField
+        usuarioField.setText("Nombre del cliente");
+        usuarioField.setForeground(Color.GRAY);
+
+        usuarioField.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (usuarioField.getText().equals("Nombre del cliente")) {
+                    usuarioField.setText("");
+                    usuarioField.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (usuarioField.getText().isEmpty()) {
+                    usuarioField.setForeground(Color.GRAY);
+                    usuarioField.setText("Nombre del cliente");
+                }
+            }
+        });
+
+        // Placeholder para passwordField (lo puedes usar como email o clave)
+        passwordField.setText("Email del cliente");
+        passwordField.setForeground(Color.GRAY);
+
+        passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                String txt = new String(passwordField.getPassword());
+                if (txt.equals("Email del cliente")) {
+                    passwordField.setText("");
+                    passwordField.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                String txt = new String(passwordField.getPassword());
+                if (txt.isEmpty()) {
+                    passwordField.setForeground(Color.GRAY);
+                    passwordField.setText("Email del cliente");
+                }
+            }
+        });
     }
 
     /**
@@ -28,11 +76,11 @@ public class AgregarUsuario extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
+        usuarioField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 102));
@@ -53,10 +101,10 @@ public class AgregarUsuario extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 350, -1));
 
-        jTextField1.setBorder(null);
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 310, 30));
+        usuarioField.setBorder(null);
+        usuarioField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        usuarioField.addActionListener(this::usuarioFieldActionPerformed);
+        jPanel1.add(usuarioField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 310, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_usuario.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
@@ -67,9 +115,9 @@ public class AgregarUsuario extends javax.swing.JPanel {
         jSeparator2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 350, -1));
 
-        jPasswordField1.setBorder(null);
-        jPasswordField1.addActionListener(this::jPasswordField1ActionPerformed);
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 310, 30));
+        passwordField.setBorder(null);
+        passwordField.addActionListener(this::passwordFieldActionPerformed);
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 310, 30));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 102));
         jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -81,13 +129,13 @@ public class AgregarUsuario extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 37, 569, 450));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void usuarioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_usuarioFieldActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -97,9 +145,9 @@ public class AgregarUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JTextField usuarioField;
     // End of variables declaration//GEN-END:variables
 }

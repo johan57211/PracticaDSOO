@@ -1,10 +1,18 @@
 package InterfazGrafica;
 
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
 
 
 public class PaginaPrincipal extends javax.swing.JFrame {
+    private final Color COLOR_NORMAL       = new Color(0, 0, 102);
+    private final Color COLOR_TEXT_NORMAL  = Color.WHITE;
+    private final Color COLOR_HOVER        = Color.WHITE;
+    private final Color COLOR_TEXT_HOVER   = Color.BLACK;
+
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName());
 
@@ -17,6 +25,21 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     public PaginaPrincipal() { 
         initComponents();
         vista = (CardLayout) vistaPrincipal.getLayout();
+        
+        jButton1.setBackground(COLOR_NORMAL);
+        jButton2.setBackground(COLOR_NORMAL);
+        jButton3.setBackground(COLOR_NORMAL);
+        jButton4.setBackground(COLOR_NORMAL);
+
+        jButton1.setForeground(COLOR_TEXT_NORMAL);
+        jButton2.setForeground(COLOR_TEXT_NORMAL);
+        jButton3.setForeground(COLOR_TEXT_NORMAL);
+        jButton4.setForeground(COLOR_TEXT_NORMAL);
+
+        addHoverEffect(jButton1);
+        addHoverEffect(jButton2);
+        addHoverEffect(jButton3);
+        addHoverEffect(jButton4);
     }
 
     /**
@@ -115,9 +138,25 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void addHoverEffect(javax.swing.JButton button) {
+        button.setFocusPainted(false);
+
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                button.setBackground(COLOR_HOVER);
+                button.setForeground(COLOR_TEXT_HOVER);
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                button.setBackground(COLOR_NORMAL);
+                button.setForeground(COLOR_TEXT_NORMAL);
+            }
+        });
+    }
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
