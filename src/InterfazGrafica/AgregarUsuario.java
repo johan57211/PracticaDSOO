@@ -170,13 +170,18 @@ public class AgregarUsuario extends javax.swing.JPanel {
     String pass = ""; 
     
     //STRING SQL
+    String sql = "INSERT INTO cliente(idCliente, nombres, email) VALUES (?, ?, ?)";
     
 
     try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
          java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
         
         //SETSTRING
-        
+        ps.setString(1, id);
+        ps.setString(2, nombre);
+        ps.setString(3, email);
+
+        ps.executeUpdate();
 
         javax.swing.JOptionPane.showMessageDialog(
                 this,

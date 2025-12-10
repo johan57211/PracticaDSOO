@@ -139,18 +139,18 @@ public class EliminarUsuario extends javax.swing.JPanel {
     String pass = ""; 
 
     //CREANDO SQL
-    
+    String sql = "DELETE FROM cliente WHERE idCliente = ?";
 
     try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
          java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
 
+        ps.setString(1, id);       
         
-        
-        
+        int filas = ps.executeUpdate();
         
         if(filas > 0) {
             //SETTEXT
-            
+            EmailLabel.setText(id);
             
             javax.swing.JOptionPane.showMessageDialog(
                     this,

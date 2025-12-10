@@ -192,14 +192,16 @@ public class ActualizarUsuario extends javax.swing.JPanel {
     String pass = ""; 
     
     //CREANDO SQL
+    String sql = "UPDATE cliente SET nombres = ?, email = ? WHERE idCliente = ?";
     
-
     try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
          java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
 
-        
-        
-        
+        ps.setString(1, nuevoNombre);
+        ps.setString(2, nuevoEmail);
+        ps.setString(3, id);
+
+	int filas = ps.executeUpdate();      
 
         if (filas > 0) {
             javax.swing.JOptionPane.showMessageDialog(
