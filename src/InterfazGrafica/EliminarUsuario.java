@@ -138,13 +138,27 @@ public class EliminarUsuario extends javax.swing.JPanel {
     String user = "root";
     String pass = ""; 
 
+    //CREANDO SQL
     
 
     try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
          java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
 
         
+        
+        
+        
+        if(filas > 0) {
+            //SETTEXT
+            
+            
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Usuario eliminado correctamente."
+            );
 
+            jTextField.setText("ID de usuario");
+            jTextField.setForeground(Color.GRAY);
         } else {
             EmailLabel.setText("");
             javax.swing.JOptionPane.showMessageDialog(

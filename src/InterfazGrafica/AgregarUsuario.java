@@ -167,13 +167,15 @@ public class AgregarUsuario extends javax.swing.JPanel {
 
     String url = "jdbc:mysql://localhost:3306/basedatosexpo?useSSL=false&serverTimezone=UTC";
     String user = "root";
-    String pass = ""; // tu contraseña de MySQL si tiene
-
-
+    String pass = ""; 
+    
+    //STRING SQL
+    
 
     try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
          java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
-
+        
+        //SETSTRING
         
 
         javax.swing.JOptionPane.showMessageDialog(

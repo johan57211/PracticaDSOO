@@ -190,14 +190,15 @@ public class ActualizarUsuario extends javax.swing.JPanel {
     String url = "jdbc:mysql://localhost:3306/basedatosexpo?useSSL=false&serverTimezone=UTC";
     String user = "root";
     String pass = ""; 
-
+    
+    //CREANDO SQL
     
 
     try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
          java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
 
-
-
+        
+        
         
 
         if (filas > 0) {

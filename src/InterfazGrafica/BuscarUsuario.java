@@ -136,11 +136,26 @@ public class BuscarUsuario extends javax.swing.JPanel {
         String pass = ""; 
         
         //CREANDO CÓDIGO EN SQL
-        
+
         
         try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
              java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
+            
 
+        
+        try (java.sql.ResultSet rs = ps.executeQuery()) {
+
+                if (rs.next()) {
+                     
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(
+                            this,
+                            "No se encontró un usuario con ese ID.",
+                            "Sin resultados",
+                            javax.swing.JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
+        }
             
 
         } catch (java.sql.SQLException e) {
