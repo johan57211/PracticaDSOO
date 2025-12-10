@@ -79,7 +79,7 @@ public class ActualizarUsuario extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnActualizarUsuario = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -100,17 +100,18 @@ public class ActualizarUsuario extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("Nuevo Email:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 140, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 150, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_usuario.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Actualizar Usuario");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 330, 50));
+        btnActualizarUsuario.setBackground(new java.awt.Color(0, 0, 102));
+        btnActualizarUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        btnActualizarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizarUsuario.setText("Actualizar Usuario");
+        btnActualizarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActualizarUsuario.addActionListener(this::btnActualizarUsuarioActionPerformed);
+        jPanel1.add(btnActualizarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 330, 50));
 
         jLabel4.setFont(new java.awt.Font("OCR A Extended", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
@@ -125,12 +126,12 @@ public class ActualizarUsuario extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 102));
         jLabel7.setText("Nuevo Nombre:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 150, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 160, 30));
 
         nuevoNombreField.setBorder(null);
         nuevoNombreField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         nuevoNombreField.addActionListener(this::nuevoNombreFieldActionPerformed);
-        jPanel1.add(nuevoNombreField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 330, 30));
+        jPanel1.add(nuevoNombreField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 270, 30));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 270, -1));
@@ -138,7 +139,7 @@ public class ActualizarUsuario extends javax.swing.JPanel {
         nuevoEmailField.setBorder(null);
         nuevoEmailField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         nuevoEmailField.addActionListener(this::nuevoEmailFieldActionPerformed);
-        jPanel1.add(nuevoEmailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 330, 30));
+        jPanel1.add(nuevoEmailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 270, 30));
 
         jSeparator3.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 270, -1));
@@ -146,7 +147,7 @@ public class ActualizarUsuario extends javax.swing.JPanel {
         idUsuario.setBorder(null);
         idUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         idUsuario.addActionListener(this::idUsuarioActionPerformed);
-        jPanel1.add(idUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 330, 30));
+        jPanel1.add(idUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 270, 30));
 
         jSeparator4.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 270, -1));
@@ -166,10 +167,68 @@ public class ActualizarUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_idUsuarioActionPerformed
 
+    private void btnActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarUsuarioActionPerformed
+    String id = idUsuario.getText().trim();
+    String nuevoNombre = nuevoNombreField.getText().trim();
+    String nuevoEmail = nuevoEmailField.getText().trim();
+    
+    //VALIDACIÓN
+    if (id.isEmpty() || id.equals("ID de usuario") ||
+        nuevoNombre.isEmpty() || nuevoNombre.equals("Nuevo nombre") ||
+        nuevoEmail.isEmpty() || nuevoEmail.equals("Nuevo email")) {
+
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Completa ID, nuevo nombre y nuevo email.",
+                "Campos incompletos",
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+    
+    //CONEXIÓN
+    String url = "jdbc:mysql://localhost:3306/basedatosexpo?useSSL=false&serverTimezone=UTC";
+    String user = "root";
+    String pass = ""; 
+
+    
+
+    try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
+         java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
+
+
+
+        
+
+        if (filas > 0) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Usuario actualizado correctamente."
+            );
+
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "No existe un cliente con ese ID.",
+                    "Sin resultados",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE
+            );
+        }
+
+    } catch (java.sql.SQLException e) {
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Error al actualizar: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+    }
+    }//GEN-LAST:event_btnActualizarUsuarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarUsuario;
     private javax.swing.JTextField idUsuario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

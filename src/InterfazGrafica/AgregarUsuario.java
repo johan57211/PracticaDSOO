@@ -6,7 +6,6 @@ package InterfazGrafica;
 
 import java.awt.Color;
 
-
 /**
  *
  * @author thebe
@@ -17,47 +16,47 @@ public class AgregarUsuario extends javax.swing.JPanel {
         initComponents();
 
         // Placeholder para usuarioField
-        usuarioField.setText("Nombre del cliente");
-        usuarioField.setForeground(Color.GRAY);
+        NombreField.setText("Nombre del cliente");
+        NombreField.setForeground(Color.GRAY);
 
-        usuarioField.addFocusListener(new java.awt.event.FocusAdapter() {
+        NombreField.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
-                if (usuarioField.getText().equals("Nombre del cliente")) {
-                    usuarioField.setText("");
-                    usuarioField.setForeground(Color.BLACK);
+                if (NombreField.getText().equals("Nombre del cliente")) {
+                    NombreField.setText("");
+                    NombreField.setForeground(Color.BLACK);
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent e) {
-                if (usuarioField.getText().isEmpty()) {
-                    usuarioField.setForeground(Color.GRAY);
-                    usuarioField.setText("Nombre del cliente");
+                if (NombreField.getText().isEmpty()) {
+                    NombreField.setForeground(Color.GRAY);
+                    NombreField.setText("Nombre del cliente");
                 }
             }
         });
 
         // Placeholder para passwordField (lo puedes usar como email o clave)
-        passwordField.setText("Email del cliente");
-        passwordField.setForeground(Color.GRAY);
+        EmailField.setText("Email del cliente");
+        EmailField.setForeground(Color.GRAY);
 
-        passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
+        EmailField.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
-                String txt = new String(passwordField.getPassword());
+                String txt = EmailField.getText();
                 if (txt.equals("Email del cliente")) {
-                    passwordField.setText("");
-                    passwordField.setForeground(Color.BLACK);
+                    EmailField.setText("");
+                    EmailField.setForeground(Color.BLACK);
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent e) {
-                String txt = new String(passwordField.getPassword());
+                String txt = EmailField.getText();
                 if (txt.isEmpty()) {
-                    passwordField.setForeground(Color.GRAY);
-                    passwordField.setText("Email del cliente");
+                    EmailField.setForeground(Color.GRAY);
+                    EmailField.setText("Email del cliente");
                 }
             }
         });
@@ -74,14 +73,17 @@ public class AgregarUsuario extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        usuarioField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        btnRegistrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        IDUsuario = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        passwordField = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        EmailField = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        NombreField = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 0, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,59 +97,126 @@ public class AgregarUsuario extends javax.swing.JPanel {
         jLabel1.setText("Registrar Cliente");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 330, 70));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/nueva-cuenta(1)(1).png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 30, 40));
-
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 51));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 350, -1));
-
-        usuarioField.setBorder(null);
-        usuarioField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        usuarioField.addActionListener(this::usuarioFieldActionPerformed);
-        jPanel1.add(usuarioField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 310, 30));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_usuario.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/contrasena(1)(1).png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 30, 40));
+        btnRegistrar.setBackground(new java.awt.Color(0, 0, 102));
+        btnRegistrar.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.addActionListener(this::btnRegistrarActionPerformed);
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 330, 50));
+
+        jLabel5.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel5.setText("ID De Usuario:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 170, 30));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 270, 10));
+
+        jLabel6.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel6.setText("Email:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 150, 30));
+
+        jLabel7.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel7.setText("Nombre:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 160, 30));
+
+        IDUsuario.setBorder(null);
+        IDUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        IDUsuario.addActionListener(this::IDUsuarioActionPerformed);
+        jPanel1.add(IDUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 270, 30));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 51));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 350, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 270, -1));
 
-        passwordField.setBorder(null);
-        passwordField.addActionListener(this::passwordFieldActionPerformed);
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 310, 30));
+        EmailField.setBorder(null);
+        EmailField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        EmailField.addActionListener(this::EmailFieldActionPerformed);
+        jPanel1.add(EmailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 270, 30));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Registrar");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 330, 50));
+        jSeparator4.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 270, -1));
+
+        NombreField.setBorder(null);
+        NombreField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        NombreField.addActionListener(this::NombreFieldActionPerformed);
+        jPanel1.add(NombreField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 270, 30));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 37, 569, 450));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usuarioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioFieldActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    String id = IDUsuario.getText().trim();
+    String nombre = NombreField.getText().trim();
+    String email = EmailField.getText().trim();
 
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+    if (id.isEmpty() || nombre.isEmpty() || email.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Completa todos los campos antes de registrar.",
+                "Campos vacíos",
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    String url = "jdbc:mysql://localhost:3306/basedatosexpo?useSSL=false&serverTimezone=UTC";
+    String user = "root";
+    String pass = ""; // tu contraseña de MySQL si tiene
+
+
+
+    try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
+         java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
+
+        
+
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Cliente registrado correctamente."
+        );
+
+    } catch (java.sql.SQLException e) {
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Error al registrar: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+    }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void IDUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
+    }//GEN-LAST:event_IDUsuarioActionPerformed
+
+    private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailFieldActionPerformed
+
+    private void NombreFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField EmailField;
+    private javax.swing.JTextField IDUsuario;
+    private javax.swing.JTextField NombreField;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JPasswordField passwordField;
-    private javax.swing.JTextField usuarioField;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     // End of variables declaration//GEN-END:variables
 }

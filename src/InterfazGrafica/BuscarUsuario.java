@@ -8,23 +8,23 @@ public class BuscarUsuario extends javax.swing.JPanel {
     public BuscarUsuario() {
         initComponents();
 
-        jTextField1.setText("ID de usuario");
-        jTextField1.setForeground(Color.GRAY);
+        IDUsuario.setText("ID de usuario");
+        IDUsuario.setForeground(Color.GRAY);
 
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+        IDUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
-                if (jTextField1.getText().equals("ID de usuario")) {
-                    jTextField1.setText("");
-                    jTextField1.setForeground(Color.BLACK);
+                if (IDUsuario.getText().equals("ID de usuario")) {
+                    IDUsuario.setText("");
+                    IDUsuario.setForeground(Color.BLACK);
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent e) {
-                if (jTextField1.getText().isEmpty()) {
-                    jTextField1.setForeground(Color.GRAY);
-                    jTextField1.setText("ID de usuario");
+                if (IDUsuario.getText().isEmpty()) {
+                    IDUsuario.setForeground(Color.GRAY);
+                    IDUsuario.setText("ID de usuario");
                 }
             }
         });
@@ -43,14 +43,14 @@ public class BuscarUsuario extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
+        IDUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnBuscarUsuario = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,20 +70,21 @@ public class BuscarUsuario extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 350, -1));
 
-        jTextField1.setBorder(null);
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 310, 30));
+        IDUsuario.setBorder(null);
+        IDUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        IDUsuario.addActionListener(this::IDUsuarioActionPerformed);
+        jPanel1.add(IDUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 310, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_usuario.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar Usuario");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 330, 50));
+        btnBuscarUsuario.setBackground(new java.awt.Color(0, 0, 102));
+        btnBuscarUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        btnBuscarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarUsuario.setText("Buscar Usuario");
+        btnBuscarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarUsuario.addActionListener(this::btnBuscarUsuarioActionPerformed);
+        jPanel1.add(btnBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 330, 50));
 
         jLabel4.setFont(new java.awt.Font("OCR A Extended", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
@@ -95,39 +96,76 @@ public class BuscarUsuario extends javax.swing.JPanel {
         jLabel5.setText("ID De Usuario");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 270, 30));
 
-        jLabel6.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 280, 30));
+        txtEmail.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(0, 0, 102));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 280, 20));
 
         jLabel7.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 102));
         jLabel7.setText("Nombre: ");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 100, 30));
 
-        jLabel8.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 102));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 280, 30));
+        txtNombre.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(0, 0, 102));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 280, 20));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 37, 569, 450));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void IDUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_IDUsuarioActionPerformed
+
+    private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
+        String id = IDUsuario.getText().trim();
+
+        //VALIDACIÓN
+        if (id.isEmpty() || id.equals("ID de usuario")) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Ingresa el ID de usuario.",
+                    "ID requerido",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+        
+        //CONEXIÓN CON BASE DE DATOS 
+        String url  = "jdbc:mysql://localhost:3306/basedatosexpo?useSSL=false&serverTimezone=UTC";
+        String user = "root";
+        String pass = ""; 
+        
+        //CREANDO CÓDIGO EN SQL
+        
+        
+        try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
+             java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
+
+            
+
+        } catch (java.sql.SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Error al buscar: " + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField IDUsuario;
+    private javax.swing.JButton btnBuscarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtNombre;
     // End of variables declaration//GEN-END:variables
 }

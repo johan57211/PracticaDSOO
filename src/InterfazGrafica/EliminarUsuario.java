@@ -18,23 +18,23 @@ public class EliminarUsuario extends javax.swing.JPanel {
     public EliminarUsuario() {
         initComponents();
 
-        jTextFieldId.setText("ID de usuario");
-        jTextFieldId.setForeground(Color.GRAY);
+        jTextField.setText("ID de usuario");
+        jTextField.setForeground(Color.GRAY);
 
-        jTextFieldId.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
-                if (jTextFieldId.getText().equals("ID de usuario")) {
-                    jTextFieldId.setText("");
-                    jTextFieldId.setForeground(Color.BLACK);
+                if (jTextField.getText().equals("ID de usuario")) {
+                    jTextField.setText("");
+                    jTextField.setForeground(Color.BLACK);
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent e) {
-                if (jTextFieldId.getText().isEmpty()) {
-                    jTextFieldId.setForeground(Color.GRAY);
-                    jTextFieldId.setText("ID de usuario");
+                if (jTextField.getText().isEmpty()) {
+                    jTextField.setForeground(Color.GRAY);
+                    jTextField.setText("ID de usuario");
                 }
             }
         });
@@ -53,12 +53,12 @@ public class EliminarUsuario extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextFieldId = new javax.swing.JTextField();
+        jTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnEliminarUsuario = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        EmailLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
@@ -75,21 +75,21 @@ public class EliminarUsuario extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 350, -1));
 
-        jTextFieldId.setBorder(null);
-        jTextFieldId.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextFieldId.addActionListener(this::jTextFieldIdActionPerformed);
-        jPanel1.add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 310, 30));
+        jTextField.setBorder(null);
+        jTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField.addActionListener(this::jTextFieldActionPerformed);
+        jPanel1.add(jTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 310, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_usuario.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Eliminar Usuario");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 330, 50));
+        btnEliminarUsuario.setBackground(new java.awt.Color(0, 0, 102));
+        btnEliminarUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        btnEliminarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarUsuario.setText("Eliminar Usuario");
+        btnEliminarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarUsuario.addActionListener(this::btnEliminarUsuarioActionPerformed);
+        jPanel1.add(btnEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 330, 50));
 
         jLabel4.setFont(new java.awt.Font("OCR A Extended", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
@@ -101,9 +101,9 @@ public class EliminarUsuario extends javax.swing.JPanel {
         jLabel5.setText("ID De Usuario");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 270, 30));
 
-        jLabel6.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 280, 30));
+        EmailLabel.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        EmailLabel.setForeground(new java.awt.Color(0, 0, 102));
+        jPanel1.add(EmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 280, 30));
 
         jLabel7.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 102));
@@ -117,26 +117,66 @@ public class EliminarUsuario extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 37, 569, 450));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
+    private void jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdActionPerformed
+    }//GEN-LAST:event_jTextFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
+    String id = jTextField.getText().trim();
+
+    if (id.isEmpty() || id.equals("ID de usuario")) {
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Ingresa el ID del usuario a eliminar.",
+                "Campo requerido",
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    String url  = "jdbc:mysql://localhost:3306/basedatosexpo?useSSL=false&serverTimezone=UTC";
+    String user = "root";
+    String pass = ""; 
+
+    
+
+    try (java.sql.Connection cn = java.sql.DriverManager.getConnection(url, user, pass);
+         java.sql.PreparedStatement ps = cn.prepareStatement(sql)) {
+
+        
+
+        } else {
+            EmailLabel.setText("");
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "No existe un usuario con ese ID.",
+                    "Sin coincidencias",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE
+            );
+        }
+
+    } catch (java.sql.SQLException e) {
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Error al eliminar: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+    }
+    }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel EmailLabel;
+    private javax.swing.JButton btnEliminarUsuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextFieldId;
+    private javax.swing.JTextField jTextField;
     // End of variables declaration//GEN-END:variables
 }

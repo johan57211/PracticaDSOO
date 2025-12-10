@@ -2,8 +2,6 @@ package InterfazGrafica;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
 
 
@@ -26,20 +24,20 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         initComponents();
         vista = (CardLayout) vistaPrincipal.getLayout();
         
-        jButton1.setBackground(COLOR_NORMAL);
-        jButton2.setBackground(COLOR_NORMAL);
-        jButton3.setBackground(COLOR_NORMAL);
-        jButton4.setBackground(COLOR_NORMAL);
+        btnEliminarUsuario.setBackground(COLOR_NORMAL);
+        btnAgregarUsuario.setBackground(COLOR_NORMAL);
+        btnBuscarUsuario.setBackground(COLOR_NORMAL);
+        btnActualizarUsuario.setBackground(COLOR_NORMAL);
 
-        jButton1.setForeground(COLOR_TEXT_NORMAL);
-        jButton2.setForeground(COLOR_TEXT_NORMAL);
-        jButton3.setForeground(COLOR_TEXT_NORMAL);
-        jButton4.setForeground(COLOR_TEXT_NORMAL);
+        btnEliminarUsuario.setForeground(COLOR_TEXT_NORMAL);
+        btnAgregarUsuario.setForeground(COLOR_TEXT_NORMAL);
+        btnBuscarUsuario.setForeground(COLOR_TEXT_NORMAL);
+        btnActualizarUsuario.setForeground(COLOR_TEXT_NORMAL);
 
-        addHoverEffect(jButton1);
-        addHoverEffect(jButton2);
-        addHoverEffect(jButton3);
-        addHoverEffect(jButton4);
+        addHoverEffect(btnEliminarUsuario);
+        addHoverEffect(btnAgregarUsuario);
+        addHoverEffect(btnBuscarUsuario);
+        addHoverEffect(btnActualizarUsuario);
     }
 
     /**
@@ -52,10 +50,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnEliminarUsuario = new javax.swing.JButton();
+        btnAgregarUsuario = new javax.swing.JButton();
+        btnBuscarUsuario = new javax.swing.JButton();
+        btnActualizarUsuario = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         vistaPrincipal = new javax.swing.JPanel();
 
@@ -66,37 +64,37 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 102));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Eliminar Usuario");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 210, 50));
+        btnEliminarUsuario.setBackground(new java.awt.Color(0, 0, 102));
+        btnEliminarUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnEliminarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarUsuario.setText("Eliminar Usuario");
+        btnEliminarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarUsuario.addActionListener(this::btnEliminarUsuarioActionPerformed);
+        jPanel1.add(btnEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 210, 50));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 102));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Agregar Usuario");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(this::jButton2ActionPerformed);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, 50));
+        btnAgregarUsuario.setBackground(new java.awt.Color(0, 0, 102));
+        btnAgregarUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAgregarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarUsuario.setText("Agregar Usuario");
+        btnAgregarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregarUsuario.addActionListener(this::btnAgregarUsuarioActionPerformed);
+        jPanel1.add(btnAgregarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, 50));
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 102));
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Buscar Usuario");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(this::jButton3ActionPerformed);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, 50));
+        btnBuscarUsuario.setBackground(new java.awt.Color(0, 0, 102));
+        btnBuscarUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarUsuario.setText("Buscar Usuario");
+        btnBuscarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarUsuario.addActionListener(this::btnBuscarUsuarioActionPerformed);
+        jPanel1.add(btnBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, 50));
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 102));
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Actualizar Usuario");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addActionListener(this::jButton4ActionPerformed);
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 210, 50));
+        btnActualizarUsuario.setBackground(new java.awt.Color(0, 0, 102));
+        btnActualizarUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnActualizarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizarUsuario.setText("Actualizar Usuario");
+        btnActualizarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActualizarUsuario.addActionListener(this::btnActualizarUsuarioActionPerformed);
+        jPanel1.add(btnActualizarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 210, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_usuario.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
@@ -110,33 +108,33 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
         vistaPrincipal.add(eliminar, "eliminar");
         vista.show(vistaPrincipal, "eliminar");
         SwingUtilities.updateComponentTreeUI(this);
         this.repaint(); 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarUsuarioActionPerformed
         vistaPrincipal.add(actualizar, "actualizar");
         vista.show(vistaPrincipal, "actualizar");
         SwingUtilities.updateComponentTreeUI(this);
         this.repaint();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnActualizarUsuarioActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
         vistaPrincipal.add(buscar, "buscar");
         vista.show(vistaPrincipal, "buscar");
         SwingUtilities.updateComponentTreeUI(this);
         this.repaint();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUsuarioActionPerformed
         vistaPrincipal.add(agregar, "agregar");
         vista.show(vistaPrincipal, "agregar");
         SwingUtilities.updateComponentTreeUI(this);
         this.repaint();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAgregarUsuarioActionPerformed
 
     private void addHoverEffect(javax.swing.JButton button) {
         button.setFocusPainted(false);
@@ -180,10 +178,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnActualizarUsuario;
+    private javax.swing.JButton btnAgregarUsuario;
+    private javax.swing.JButton btnBuscarUsuario;
+    private javax.swing.JButton btnEliminarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel vistaPrincipal;
